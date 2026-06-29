@@ -808,7 +808,7 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
     /* Target the base structure variant specifically for parallax asset normalization on iOS */
     .hero-home {
         /*background-attachment: scroll !important;*/
-        background-size: cover !important;
+        background-size: auto !important;
         background-position: 50% 13% !important; /* Matches standard landscape framing precisely */
     }
 
