@@ -892,3 +892,55 @@ a.tour-card-link:focus-visible, .btn:focus-visible, .btn-enquire:focus-visible {
     .btn, .tour-card, .btn-enquire, .mosaic-item, .highlights-item-card { transition: none; }
     .btn:hover, .tour-card:hover, .btn-enquire:hover, .mosaic-item:hover, .highlights-item-card:hover { transform: none; }
 }
+
+/* ==========================================================================
+   DESKTOP HIGHLIGHTS CAROUSEL ENGINE (OVERRIDE FOR VIEWPORTS > 768px)
+   ========================================================================== */
+@media (min-width: 769px) {
+    /* Target using the exact compound weight to completely clear the grid layout */
+    .highlights-grid.highlights-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        gap: 30px;
+        padding: 20px 5px 30px 5px;
+        
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-gold) transparent;
+        scroll-snap-type: x mandatory;
+    }
+
+    /* Webkit Engine Scrollbar customization */
+    .highlights-grid::-webkit-scrollbar {
+        height: 6px;
+    }
+    .highlights-grid::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.03);
+        border-radius: 10px;
+    }
+    .highlights-grid::-webkit-scrollbar-thumb {
+        background: var(--accent-gold);
+        border-radius: 10px;
+    }
+
+    /* Lock Card Dimensions & Force internal alignment elements to stretch */
+    .highlights-grid .highlights-item-card {
+        flex: 0 0 350px !important;
+        max-width: 350px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        scroll-snap-align: start;
+        height: auto !important; /* Clears any hardcoded heights hanging from grid rules */
+    }
+
+    /* Force the inner text element container to grow vertically */
+    .highlights-grid .highlights-item-card .highlight-card-info {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-grow: 1 !important;
+    }
+}
